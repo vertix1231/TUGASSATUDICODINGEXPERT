@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:id="@+id/rllistview">
 
     <ImageView
         android:id="@+id/ivImage"
@@ -11,6 +12,12 @@
         android:layout_height="125dp"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivImage"
+        android:text="PILIH"
+        android:id="@+id/btnPilih"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,6 +48,7 @@
             style="@style/TextAppearance.AppCompat.Body2"/>
 
     </LinearLayout>
+
 
 
 </RelativeLayout>

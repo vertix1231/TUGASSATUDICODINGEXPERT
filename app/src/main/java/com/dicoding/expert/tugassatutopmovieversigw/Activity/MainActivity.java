@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -15,7 +16,7 @@ import com.dicoding.expert.tugassatutopmovieversigw.R;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     ListView listView;
     private AdapterMovie adapterMovie;
@@ -26,11 +27,22 @@ public class MainActivity extends AppCompatActivity {
     private TypedArray Photodata;
     private ArrayList<PojoMovie> pojoMovieArrayList;
 
+    Button btnpilih;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btnpilih = findViewById(R.id.btnPilih);
+        btnpilih.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<PojoMovie> pojoMovie = new ArrayList<>();
+                Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+                intent.putParcelableArrayListExtra(DetailActivity.EXTRA_MOVIE,pojoMovie);
+            }
+        });
         listView =findViewById(R.id.lv_list);
 //        llitemfilm = findViewById(R.id.llDesc);
 //        llitemfilm.setOnClickListener(this);
@@ -44,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
     private void addItem(){
         pojoMovieArrayList = new ArrayList<>();
