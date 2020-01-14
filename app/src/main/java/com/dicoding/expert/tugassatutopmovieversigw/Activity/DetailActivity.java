@@ -29,17 +29,17 @@ public class DetailActivity extends AppCompatActivity {
         desc = findViewById(R.id.tvDesc);
         gambar = findViewById(R.id.ivImage);
 
-        Bundle bundle =getIntent().getExtras();
-        if(bundle != null){
-            pojoMovie = bundle.getParcelable(EXTRA_MOVIE);
-
-        }
-
-        if(pojoMovie != null){
-            judul.setText(pojoMovie.getTvjudul());
-            desc.setText(pojoMovie.getTvdescmovie());
-            Glide.with(this).load(pojoMovie.getIvmovie()).into(gambar);
-        }
+//        Bundle bundle =getIntent().getExtras();
+//        if(bundle != null){
+//            pojoMovie = bundle.getParcelable(EXTRA_MOVIE);
+//
+//        }
+//
+//        if(pojoMovie != null){
+//            judul.setText(pojoMovie.getTvjudul());
+//            desc.setText(pojoMovie.getTvdescmovie());
+//            Glide.with(this).load(pojoMovie.getIvmovie()).into(gambar);
+//        }
 
     }
 }

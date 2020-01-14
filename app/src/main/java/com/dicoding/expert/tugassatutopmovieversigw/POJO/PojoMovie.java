@@ -8,24 +8,6 @@ public class PojoMovie implements Parcelable {
     private String tvdescmovie,tvjudul;
 
 
-    protected PojoMovie(Parcel in) {
-        ivmovie = in.readInt();
-        tvdescmovie = in.readString();
-        tvjudul = in.readString();
-    }
-
-    public static final Creator<PojoMovie> CREATOR = new Creator<PojoMovie>() {
-        @Override
-        public PojoMovie createFromParcel(Parcel in) {
-            return new PojoMovie(in);
-        }
-
-        @Override
-        public PojoMovie[] newArray(int size) {
-            return new PojoMovie[size];
-        }
-    };
-
     public int getIvmovie() {
         return ivmovie;
     }
@@ -60,9 +42,27 @@ public class PojoMovie implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(ivmovie);
-        parcel.writeString(tvdescmovie);
-        parcel.writeString(tvjudul);
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.ivmovie);
+        dest.writeString(this.tvdescmovie);
+        dest.writeString(this.tvjudul);
     }
+
+    protected PojoMovie(Parcel in) {
+        this.ivmovie = in.readInt();
+        this.tvdescmovie = in.readString();
+        this.tvjudul = in.readString();
+    }
+
+    public static final Creator<PojoMovie> CREATOR = new Creator<PojoMovie>() {
+        @Override
+        public PojoMovie createFromParcel(Parcel source) {
+            return new PojoMovie(source);
+        }
+
+        @Override
+        public PojoMovie[] newArray(int size) {
+            return new PojoMovie[size];
+        }
+    };
 }

@@ -19,8 +19,7 @@ public class AdapterMovie extends BaseAdapter {
     private ArrayList<PojoMovie> moviearray = new ArrayList<>();
 
     public void setArrayList(ArrayList<PojoMovie> arrayList) {
-        this.moviearray
-                = arrayList;
+        this.moviearray = arrayList;
     }
 
     public AdapterMovie(Context context) {
