@@ -34,15 +34,6 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        btnpilih = findViewById(R.id.btnPilih);
-//        btnpilih.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                ArrayList<PojoMovie> pojoMovie = new ArrayList<>();
-//                Intent intent = new Intent(MainActivity.this,DetailActivity.class);
-//                intent.putParcelableArrayListExtra(DetailActivity.EXTRA_MOVIE,pojoMovie);
-//            }
-//        });
         listView =findViewById(R.id.lv_list);
 //        llitemfilm = findViewById(R.id.llDesc);
 //        llitemfilm.setOnClickListener(this);

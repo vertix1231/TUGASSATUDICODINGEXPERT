@@ -3,7 +3,9 @@ package com.dicoding.expert.tugassatutopmovieversigw.POJO;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class PojoMovie implements Parcelable {
+import java.util.ArrayList;
+
+public class PojoMovie extends ArrayList<Parcelable> implements Parcelable {
     private int ivmovie;
     private String tvdescmovie,tvjudul;
 

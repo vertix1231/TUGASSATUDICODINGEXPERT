@@ -78,7 +78,7 @@ public class AdapterMovie extends BaseAdapter {
 
         }
 
-        void bind (PojoMovie pojoMovie){
+        void bind (final PojoMovie pojoMovie){
 
             judul.setText(pojoMovie.getTvjudul());
             desc.setText(pojoMovie.getTvdescmovie());
@@ -88,8 +88,10 @@ public class AdapterMovie extends BaseAdapter {
                 public void onClick(View view) {
 
 
-                    Intent intent = new Intent(Context.this,DetailActivity.class);
-                    intent.putParcelableArrayListExtra(DetailActivity.EXTRA_MOVIE,pojoMovie);
+                    Intent intent = new Intent(context,DetailActivity.class);
+                    intent.putExtra(DetailActivity.EXTRA_MOVIE,moviearray);
+                    context.startActivity(intent);
+
 
                 }
             });

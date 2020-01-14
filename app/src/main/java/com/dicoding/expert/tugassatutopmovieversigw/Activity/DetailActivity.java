@@ -25,10 +25,15 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        judul = findViewById(R.id.tvTitle);
-        desc = findViewById(R.id.tvDesc);
-        gambar = findViewById(R.id.ivImage);
+        setViewID();
+        getDataFromMain();
 
+
+
+//        judul = findViewById(R.id.tvTitle);
+//        desc = findViewById(R.id.tvDesc);
+//        gambar = findViewById(R.id.ivImage);
+//
 //        Bundle bundle =getIntent().getExtras();
 //        if(bundle != null){
 //            pojoMovie = bundle.getParcelable(EXTRA_MOVIE);
@@ -42,4 +47,37 @@ public class DetailActivity extends AppCompatActivity {
 //        }
 
     }
+
+    public void setViewID(){
+
+        judul = findViewById(R.id.tvTitle);
+        desc = findViewById(R.id.tvDesc);
+        gambar = findViewById(R.id.ivImage);
+
+    }
+
+    public void getDataFromMain(){
+
+        Bundle bundle = getIntent().getExtras();
+        PojoMovie pojoMovie;
+
+        if(bundle != null){
+            pojoMovie = (PojoMovie) bundle.getParcelable(EXTRA_MOVIE);
+
+            if(pojoMovie != null){
+                setView(pojoMovie);
+            }
+        }
+
+    }
+
+    public void setView(PojoMovie pojoMovie){
+
+        judul.setText(pojoMovie.getTvjudul());
+        desc.setText(pojoMovie.getTvdescmovie());
+        gambar.setImageResource(pojoMovie.getIvmovie());
+
+    }
+
+
 }
