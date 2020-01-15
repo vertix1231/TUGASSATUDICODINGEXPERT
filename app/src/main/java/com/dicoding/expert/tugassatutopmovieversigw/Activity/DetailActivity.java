@@ -18,6 +18,8 @@ public class DetailActivity extends AppCompatActivity {
     private ImageView gambar;
     public static final String EXTRA_MOVIE = "extra_movie";
     PojoMovie pojoMovie;
+    String judulfilm,descfilm;
+    int gambarfilm;
 
 
     @Override
@@ -73,9 +75,17 @@ public class DetailActivity extends AppCompatActivity {
 
     public void setView(PojoMovie pojoMovie){
 
-        judul.setText(pojoMovie.getTvjudul());
-        desc.setText(pojoMovie.getTvdescmovie());
-        gambar.setImageResource(pojoMovie.getIvmovie());
+        ArrayList<PojoMovie>pojoMovieArrayList = this.getIntent().getParcelableArrayListExtra(EXTRA_MOVIE);
+
+        judulfilm = pojoMovie.getTvjudul();
+        judul.setText(judulfilm);
+
+        descfilm = pojoMovie.getTvdescmovie();
+        desc.setText(descfilm);
+
+        gambarfilm = pojoMovie.getIvmovie();
+        gambar.setImageResource(gambarfilm);
+        //Glide.with(this).load(pojoMovie.getIvmovie()).into(gambar);
 
     }
 

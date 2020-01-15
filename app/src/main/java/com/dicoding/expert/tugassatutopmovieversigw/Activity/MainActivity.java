@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -22,8 +23,7 @@ public class MainActivity extends AppCompatActivity  {
     private AdapterMovie adapterMovie;
     private LinearLayout llitemfilm;
 
-    private String[] namadata;
-    private String[] Descriptiondata;
+    private String[] namadata, Descriptiondata;
     private TypedArray Photodata;
     private ArrayList<PojoMovie> pojoMovieArrayList;
 
@@ -42,6 +42,28 @@ public class MainActivity extends AppCompatActivity  {
 
         prepare();
         addItem();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+
+                ArrayList<PojoMovie> pojoMoviesArray = new ArrayList<PojoMovie>();
+                PojoMovie pojoMovie = new PojoMovie();
+
+                pojoMovie.setTvjudul(namadata[i]);
+                pojoMovie.setTvdescmovie(Descriptiondata[i]);
+                pojoMovie.setIvmovie(Photodata.getResourceId(i,-1));
+
+                pojoMoviesArray.add(pojoMovie);
+
+                intent.putParcelableArrayListExtra(DetailActivity.EXTRA_MOVIE,pojoMovie);
+                startActivity(intent);
+
+
+            }
+        });
 
 
 
