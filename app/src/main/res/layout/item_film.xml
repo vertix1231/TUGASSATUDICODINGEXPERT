@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="200dp"
     android:layout_margin="8dp"
     android:padding="8dp"
     android:id="@+id/rllistview">
@@ -9,23 +9,27 @@
     <ImageView
         android:id="@+id/ivImage"
         android:layout_width="100dp"
-        android:layout_height="125dp"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ivImage"
-        android:text="PILIH"
-        android:id="@+id/btnPilih"/>
+
+
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/ivImage"-->
+<!--        android:text="PILIH"-->
+<!--        android:id="@+id/btnPilih"/>-->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_toEndOf="@id/ivImage"
         android:paddingStart="16dp"
         android:id="@+id/llDesc">
+
+
 
         <TextView
             android:id="@+id/tvTitle"
@@ -36,16 +40,29 @@
             style="@style/TextAppearance.AppCompat.Title" />
 
 
-
         <TextView
             android:id="@+id/tvDesc"
+            style="@style/TextAppearance.AppCompat.Body2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:maxLines="3"
             android:ellipsize="end"
-            android:text="@string/example_desc"
-            style="@style/TextAppearance.AppCompat.Body2"/>
+            android:maxLines="3"
+            android:text="@string/example_desc" />
+
+        <TextView
+            android:id="@+id/tvRating"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:drawableStart="@drawable/ic_star_black_24dp"
+            android:drawablePadding="8dp"
+            android:drawableTint="@android:color/holo_orange_light"
+            android:text="@string/example_rating"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

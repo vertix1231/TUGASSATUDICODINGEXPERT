@@ -19,25 +19,30 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  {
 
+    //listview
     ListView listView;
-    private AdapterMovie adapterMovie;
-    private LinearLayout llitemfilm;
 
-    private String[] namadata, Descriptiondata;
+    //adapter
+    private AdapterMovie adapterMovie;
+
+    //data array judul dan deaac
+    private String[] namadata, Descriptiondata,ratingdata;
+
+
+    //data array gambar fil
     private TypedArray Photodata;
+
+    //Arraylist tempat menampung array2
     private ArrayList<PojoMovie> pojoMovieArrayList;
 
-    Button btnpilih;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView =findViewById(R.id.lv_list);
-//        llitemfilm = findViewById(R.id.llDesc);
-//        llitemfilm.setOnClickListener(this);
         adapterMovie = new AdapterMovie(this);
+        listView =findViewById(R.id.lv_list);
         listView.setAdapter(adapterMovie);
 
         prepare();
@@ -49,16 +54,17 @@ public class MainActivity extends AppCompatActivity  {
 
                 Intent intent = new Intent(MainActivity.this,DetailActivity.class);
 
-                ArrayList<PojoMovie> pojoMoviesArray = new ArrayList<PojoMovie>();
+                ArrayList<PojoMovie> pojoMovieArrayList = new ArrayList<PojoMovie>();
                 PojoMovie pojoMovie = new PojoMovie();
 
                 pojoMovie.setTvjudul(namadata[i]);
                 pojoMovie.setTvdescmovie(Descriptiondata[i]);
                 pojoMovie.setIvmovie(Photodata.getResourceId(i,-1));
+                pojoMovie.setTvrating(ratingdata[i]);
 
-                pojoMoviesArray.add(pojoMovie);
+                pojoMovieArrayList.add(pojoMovie);
 
-                intent.putParcelableArrayListExtra(DetailActivity.EXTRA_MOVIE,pojoMovie);
+                intent.putParcelableArrayListExtra(DetailActivity.EXTRA_MOVIE,pojoMovieArrayList);
                 startActivity(intent);
 
 
@@ -81,6 +87,7 @@ public class MainActivity extends AppCompatActivity  {
             pojoMovie.setIvmovie(Photodata.getResourceId(i,-1));
             pojoMovie.setTvjudul(namadata[i]);
             pojoMovie.setTvdescmovie(Descriptiondata[i]);
+            pojoMovie.setTvrating(ratingdata[i]);
             pojoMovieArrayList.add(pojoMovie);
 
         }
@@ -92,6 +99,7 @@ public class MainActivity extends AppCompatActivity  {
         namadata = getResources().getStringArray(R.array.data_title);
         Descriptiondata = getResources().getStringArray(R.array.data_desc);
         Photodata = getResources().obtainTypedArray(R.array.data_image);
+        ratingdata = getResources().getStringArray(R.array.data_rating);
 
     }
 

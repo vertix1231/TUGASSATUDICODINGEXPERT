@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 public class PojoMovie extends ArrayList<Parcelable> implements Parcelable {
     private int ivmovie;
-    private String tvdescmovie,tvjudul;
-
+    private String tvdescmovie,tvjudul,tvrating;
 
     public int getIvmovie() {
         return ivmovie;
@@ -34,6 +33,14 @@ public class PojoMovie extends ArrayList<Parcelable> implements Parcelable {
         this.tvjudul = tvjudul;
     }
 
+    public String getTvrating() {
+        return tvrating;
+    }
+
+    public void setTvrating(String tvrating) {
+        this.tvrating = tvrating;
+    }
+
     public PojoMovie() {
     }
 
@@ -48,12 +55,14 @@ public class PojoMovie extends ArrayList<Parcelable> implements Parcelable {
         dest.writeInt(this.ivmovie);
         dest.writeString(this.tvdescmovie);
         dest.writeString(this.tvjudul);
+        dest.writeString(this.tvrating);
     }
 
     protected PojoMovie(Parcel in) {
         this.ivmovie = in.readInt();
         this.tvdescmovie = in.readString();
         this.tvjudul = in.readString();
+        this.tvrating = in.readString();
     }
 
     public static final Creator<PojoMovie> CREATOR = new Creator<PojoMovie>() {

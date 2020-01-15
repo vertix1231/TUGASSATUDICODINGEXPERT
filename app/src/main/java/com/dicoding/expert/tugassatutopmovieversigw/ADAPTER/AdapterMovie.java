@@ -2,6 +2,7 @@ package com.dicoding.expert.tugassatutopmovieversigw.ADAPTER;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,51 +51,45 @@ public class AdapterMovie extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View itemview = view;
-        if(itemview == null) {
-            itemview = LayoutInflater.from(context).inflate(R.layout.item_film, viewGroup, false);
+        View itemView = view;
+        if (itemView == null) {
+            itemView = LayoutInflater.from(context).inflate(R.layout.item_film, viewGroup, false);
         }
-        ViewHolder viewHolder = new ViewHolder(itemview);
-        PojoMovie pojoMovie = (PojoMovie) getItem(i);
-        viewHolder.bind(pojoMovie);
-        return itemview;
-
+        ViewHolder viewHolder = new ViewHolder(itemView);
+        PojoMovie movie = (PojoMovie) getItem(i);
+        viewHolder.bind(movie);
+        return itemView;
     }
 
 
 
     public class ViewHolder{
 
-        private TextView judul,desc;
+        private TextView judul,desc,rating;
         private ImageView gambar;
-        Button btnpilih;
+
 
         ViewHolder(View view){
 
+
             judul = view.findViewById(R.id.tvTitle);
             desc = view.findViewById(R.id.tvDesc);
+            rating = view.findViewById(R.id.tvRating);
             gambar = view.findViewById(R.id.ivImage);
-            btnpilih = view.findViewById(R.id.btnPilih);
+
+
+//            btnpilih = view.findViewById(R.id.btnPilih);
 
         }
 
-        void bind (final PojoMovie pojoMovie){
+        void bind ( PojoMovie pojoMovie){
 
             judul.setText(pojoMovie.getTvjudul());
             desc.setText(pojoMovie.getTvdescmovie());
+            rating.setText(pojoMovie.getTvrating());
             gambar.setImageResource(pojoMovie.getIvmovie());
-            btnpilih.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
 
 
-                    Intent intent = new Intent(context,DetailActivity.class);
-                    intent.putExtra(DetailActivity.EXTRA_MOVIE,moviearray);
-                    context.startActivity(intent);
-
-
-                }
-            });
         }
 
 

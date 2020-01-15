@@ -20,7 +20,7 @@
         <item>Glass</item>
     </string-array>
 
-    <integer-array name="data_rating">
+    <string-array name="data_rating">
         <item>7</item>
         <item>7</item>
         <item>8</item>
@@ -32,7 +32,7 @@
         <item>7</item>
         <item>8</item>
         <item>7</item>
-    </integer-array>
+    </string-array>
 
     <string-array name="data_desc">
         <item>A musician helps a young singer find fame as age and alcoholism send his own career into a downward spiral.</item>
